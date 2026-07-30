@@ -1,0 +1,15 @@
+# Network files are hosted on the Digital Porous Media Portal, NOT here.
+# The dataset is ~8 GB and individual files reach 1.9 GB, far beyond
+# GitHub's 100 MB per-file limit. Keep them out of the repo.
+*.pickle
+*.pkl
+*.vtk
+*.nc
+
+# staging folders produced by export_networks.py
+upload_staging/
+export/
+
+__pycache__/
+*.pyc
+.DS_Store

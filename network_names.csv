@@ -1,0 +1,28 @@
+data_name,extraction,publication_name,original_stem,voxel_size_um,voxel_size_in_pickle_um,rescale_needed
+Silica Sphere Pack,Diamorse,silica_sphere_pack_diamorse,segmented_bead_pack_512_IMP_SS_EXP,17.5,17.5,no
+Silica Sphere Pack,SNOW2,silica_sphere_pack_snow2,segmented_bead_pack_512_IMP_SS_EXP_SNOW2,17.5,17.5,no
+Silica Sphere Pack,MAGNET,silica_sphere_pack_magnet,segmented_bead_pack_512_IMP_SS_EXP_MAGNET,17.5,17.5,no
+Unconsolidated Sand Pack,Diamorse,unconsolidated_sand_pack_diamorse,segmentedFCICSS2UMADSS2048W_IMP_3,9.18,5.6,YES
+Unconsolidated Sand Pack,SNOW2,unconsolidated_sand_pack_snow2,segmentedFCICSS2UMADSS2048W_IMP_3_SNOW2,9.18,9.18,no
+Unconsolidated Sand Pack,MAGNET,unconsolidated_sand_pack_magnet,segmentedFCICSS2UMADSS2048W_IMP_3_MAGNET,9.18,9.18,no
+Mt. Gambier Limestone,Diamorse,mt_gambier_limestone_diamorse,segmented_Gambier_512_IMP_3,3.02,3.02,no
+Mt. Gambier Limestone,SNOW2,mt_gambier_limestone_snow2,segmented_Gambier_512_IMP_SNOW2,3.02,3.02,no
+Mt. Gambier Limestone,MAGNET,mt_gambier_limestone_magnet,segmented_Gambier_512_IMP_MAGNET,3.02,3.02,no
+Castlegate Sandstone,Diamorse,castlegate_sandstone_diamorse,segmented_castle_512_IMP_3,5.60,9.184,YES
+Castlegate Sandstone,SNOW2,castlegate_sandstone_snow2,segmented_castle_512_IMP_3_SNOW2,5.60,5.60,no
+Castlegate Sandstone,MAGNET,castlegate_sandstone_magnet,segmented_castle_512_IMP_3_MAGNET,5.60,5.60,no
+Robuglass,Diamorse,robuglass_diamorse,segmentedPenn_State_Robuglass_Vacuum_3,25.0,25.0,check
+Bentheimer (Herring et al. 2023),Diamorse,bentheimer_herring2023_diamorse,segmentedHiRes_roi_SS_GM_AC_CACdry_ASC4sr_IC_PM_RSP0pt5_3,7.84,17.472,YES
+Bentheimer (Huang et al. 2025 minor),Diamorse,bentheimer_huang2025_minor_diamorse,segmented_HuangCore01_HiRes_roi_GM_AC_SS_MM_CAC11_ASC2_ICair_ICgrain14000_PM_ICair248_ICgrain_3,3.85,3.85,no
+Bentheimer (Huang et al. 2025 moderate),Diamorse,bentheimer_huang2025_moderate_diamorse,segmented_HuangCore02_HiRes_roi_GM_AC_SS_MM_CAC16_ICair262_ICgrain_3,3.78,5.6,YES
+Bentheimer (Harris et al. 2026),Diamorse,bentheimer_harris2026_diamorse,segmented_Harris_BTH_ANSTO_IMP_RPI_GM_AC_3,20.0,20.0,no
+Clashach Sandstone,Diamorse,clashach_sandstone_diamorse,segmented_Jangda_04_Dry_Segmented_IMP_RPI_3,7.0,7.0,no
+Clashach Sandstone,SNOW2,clashach_sandstone_snow2,segmented_Jangda_04_Dry_Segmented_IMP_RPI_SNOW2,7.0,7.0,no
+Clashach Sandstone,MAGNET,clashach_sandstone_magnet,segmented_Jangda_04_Dry_Segmented_IMP_RPI_3_MAGNET,7.0,7.0,no
+Indiana Limestone,Diamorse,indiana_limestone_diamorse,segmented_Darraj_Indiana_IMP_RPI_GM_AC_3,4.9,4.9,no
+Edwards Brown Dolomite,Diamorse,edwards_brown_dolomite_diamorse,segmented_Darraj_EdBrwn_IMP_RPI_GM_AC_3,5.6,5.6,no
+Estaillades (Spurin et al. 2020),Diamorse,estaillades_spurin2020_diamorse,segmented_Spurin_Estaillades_pore_space__IMP_RPI_GM_AC_3,2.75,17.472,YES
+Estaillades (Spurin et al. 2020),SNOW2,estaillades_spurin2020_snow2,segmented_Spurin_Estaillades_pore_space__IMP_RPI_GM_AC_3_SNOW2,2.75,2.75,no
+Estaillades (Spurin et al. 2020),MAGNET,estaillades_spurin2020_magnet,segmented_Spurin_Estaillades_pore_space__IMP_RPI_GM_AC_3_MAGNET,2.75,2.75,no
+Estaillades (Menke et al. 2022),Diamorse,estaillades_menke2022_diamorse,Estaillades_XRM510_3_9676micron_1202_1236_6000_8bitlabel_segmented3phase_3,3.9676,3.9676,no
+Leopard Sandstone,Diamorse,leopard_sandstone_diamorse,Leo_017_3,3.47529,3.47529,no
