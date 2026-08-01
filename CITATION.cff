@@ -24,7 +24,7 @@ keywords:
   - micro-CT
   - persistent homology
   - OpenPNM
-# license: MIT        # uncomment once a licence is chosen (see README)
+license: MIT
 
 # Once the paper is published, adding a preferred-citation block makes
 # GitHub's "Cite this repository" button point at the article rather than

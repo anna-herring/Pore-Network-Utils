@@ -10,9 +10,7 @@ method-dependence can be separated from rock properties.
 [Data](#data)); this repository holds the code to load them and the
 conventions you need to use them correctly.
 
-> **Licence pending.** No licence has been chosen yet, which means the code
-> is under default copyright and cannot yet be reused. See
-> [Licence](#licence).
+Released under the [MIT licence](LICENSE).
 
 ## Contents
 
@@ -150,12 +148,8 @@ The network files are available from the Digital Porous Media Portal:
 
 ## Licence
 
-Not yet chosen. Until a `LICENSE` file is added this code is under default
-copyright — publicly visible, but not licensed for reuse, modification or
-redistribution.
+The code in this repository is released under the MIT licence — see
+[`LICENSE`](LICENSE).
 
-Intended: **MIT** for the code here, **CC-BY-4.0** for the network data on
-the portal. Pending a check of the DE-SC0025400 award terms and a software
-disclosure to the UT Research Foundation, as the work was produced under a
-federal award. Once settled, add the `LICENSE` file and uncomment the
-`license:` field in `CITATION.cff`.
+The network data on the Digital Porous Media Portal is licensed separately;
+see the portal record for its terms.
