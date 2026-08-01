@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use these utilities, please cite them as below."
+title: "Pore-Network-Utils"
+abstract: >-
+  Utilities for loading, correcting and converting pore-network models
+  extracted from micro-CT images of porous geologic media. Reads the
+  published NetworkX pickles, converts them to OpenPNM networks, and
+  documents the extraction conventions.
+type: software
+authors:
+  - family-names: Herring
+    given-names: Anna L.
+    affiliation: >-
+      Department of Civil and Environmental Engineering,
+      University of Tennessee, Knoxville
+    email: aherri18@utk.edu
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # add yours
+repository-code: "https://github.com/anna-herring/Pore-Network-Utils"
+version: "1.0.0"
+date-released: "2026-08-01"
+keywords:
+  - pore network
+  - porous media
+  - micro-CT
+  - persistent homology
+  - OpenPNM
+# license: MIT        # uncomment once a licence is chosen (see README)
+
+# Once the paper is published, adding a preferred-citation block makes
+# GitHub's "Cite this repository" button point at the article rather than
+# the software:
+#
+# preferred-citation:
+#   type: article
+#   title: >-
+#     Capillary Barriers Controlling Fluid Invasion in Geologic Porous
+#     Media Identified via Topology and Network Analysis
+#   authors:
+#     - family-names: Herring
+#       given-names: Anna L.
+#   journal: "Geophysical Research Letters"
+#   year: 2026
+#   doi: "10.1029/..."

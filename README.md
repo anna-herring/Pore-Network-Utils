@@ -1,29 +1,46 @@
-# Heterogeneous pore networks
+# Pore-Network-Utils
 
-Pore-network models extracted from micro-CT images of 15 porous media,
-spanning bead packs and sand packs, synthetic micromodels, sandstones, and
-carbonates. Where possible each sample is provided under three independent
-extraction methods, so that method-dependence can be separated from rock
-properties.
+Utilities for working with pore-network models extracted from micro-CT
+images of porous geologic media — 15 samples spanning bead and sand packs,
+a synthetic micromodel, sandstones and carbonates. Where possible each
+sample is provided under three independent extraction methods, so that
+method-dependence can be separated from rock properties.
 
-**The networks themselves are hosted on the Digital Porous Media Portal**
-(see [Data](#data)). This repository holds the loader/converter code and the
-metadata needed to use them correctly.
+**The networks themselves are on the Digital Porous Media Portal** (see
+[Data](#data)); this repository holds the code to load them and the
+conventions you need to use them correctly.
+
+> **Licence pending.** No licence has been chosen yet, which means the code
+> is under default copyright and cannot yet be reused. See
+> [Licence](#licence).
 
 ## Contents
 
+Distributed with the networks:
+
 | file | purpose |
 | --- | --- |
-| `network_to_openpnm.py` | load a network pickle, correct its voxel size, convert to OpenPNM |
-| `network_names.csv` | maps each file to its publication name, extraction method and **true voxel size** |
-| `export_networks.py` | renames the original extraction outputs to the published names (provenance/reproducibility) |
+| `network_to_openpnm.py` | load a network pickle and convert it to OpenPNM |
+| `network_names.csv` | maps each file to its publication name, extraction method and voxel size |
+
+In this repository only, documenting how the published files were produced:
+
+| file | purpose |
+| --- | --- |
+| `correct_networks.py` | the one-off pass that produced the v1.0 files from the raw extraction output |
+| `export_networks.py` | maps the original extraction filenames to the published names |
+| `make_checksums.py` | writes / verifies `CHECKSUMS.txt` for the deposit |
+| `correction_report.csv` | per-file record of what `correct_networks.py` changed, and its verification results |
+
+Verify a download against the published checksums with `sha256sum -c
+CHECKSUMS.txt`, or `python make_checksums.py --dir . --check`.
 
 ## Quick start
 
 ```python
 from network_to_openpnm import load_graph, to_openpnm
 
-G  = load_graph("clashach_sandstone_diamorse.pickle", voxel_size_um=7.0)
+G  = load_graph("clashach_sandstone_diamorse.pickle")
 pn = to_openpnm(G)
 print(pn)
 ```
@@ -31,8 +48,10 @@ print(pn)
 or from the command line:
 
 ```bash
-python network_to_openpnm.py clashach_sandstone_diamorse.pickle --voxel-um 7.0
+python network_to_openpnm.py clashach_sandstone_diamorse.pickle
 ```
+
+No voxel size or coordinate handling is needed — see [Conventions](#conventions).
 
 Requires `numpy`, `networkx`, and `openpnm >= 3.0` (the latter only for the
 OpenPNM conversion; `load_graph` works without it).
@@ -48,32 +67,56 @@ carry `coords`, `volume`, `inscribed_diameter`, `equivalent_diameter`,
 `cross_sectional_area`, `hydraulic_size_factors`, `diffusive_size_factors`
 and others.
 
-## Four things to know before using these files
+## Conventions
 
-**1. Units are metres.** Every length, area and volume attribute is SI —
-not voxels, not microns. Multiply by `1e6` for microns.
+Every file carries a stamp describing itself:
 
-**2. Coordinate order is not uniform.** Pore `coords` is `(x, y, z)`.
-But `global_peak`, `geometric_centroid` and `local_peak` are `(z, y, x)`,
-following the porespy region convention. `to_openpnm` reverses those fields
-so that everything comes out `(x, y, z)`; pass `reorder=False` to keep them
-as stored.
+```python
+G.graph
+# {'format_version': '1.0',
+#  'coord_order': 'xyz',
+#  'attribute_types': 'plain Python (float / int / list)',
+#  'units': 'SI (metres)',
+#  'voxel_size_um': 7.0,
+#  'capacity_definition': '(inscribed_diameter/2)**4, m^4',
+#  'sample_name': 'Clashach Sandstone',
+#  'extraction': 'Diamorse'}
+```
 
-**3. Some networks were extracted with a placeholder voxel size.** In those
-files, absolute lengths are off by a constant factor — the topology is
-correct but permeability and capillary pressures computed from them would
-not be. `network_names.csv` flags these (`rescale_needed = YES`) and gives
-the correct voxel size. Passing `voxel_size_um` to `load_graph` applies the
-correction: lengths scale by *f*, areas by *f²*, volumes by *f³*, and the
-OpenPNM `*_size_factors` by *f* (they have units of length, being
-area/length). **Always pass the voxel size from `network_names.csv`** — it
-is a no-op for files that are already correct, so it is safe to pass every
-time.
+**Units are metres.** Every length, area and volume attribute is SI — not
+voxels, not microns. Multiply by `1e6` for microns.
 
-**4. Some files contain leftover solver nodes.** A few networks were saved
-after a max-flow calculation and still contain `super_source`/`super_sink`
-nodes carrying no geometry. `load_graph` removes any non-integer node and
-reindexes the remainder contiguously.
+**Every vector attribute is `(x, y, z)`.** That includes `global_peak`,
+`geometric_centroid` and `local_peak`, which the extraction tools emit as
+`(z, y, x)`. They were reordered when these files were built, so no
+transposition is needed on load.
+
+**Voxel sizes are already correct.** A few extractions recorded a
+placeholder voxel size, leaving absolute lengths off by a constant factor.
+That was corrected before publication — `voxel_size_um` in the stamp is the
+true value, and it has already been applied. Topology, permeability and
+capillary pressures are all on the correct length scale as distributed.
+
+**Throat `capacity` is `(inscribed_diameter/2)⁴`, in m⁴.** This is the
+definition behind the published minimum cuts: nonwetting-phase invasion is
+controlled by the constriction, so the inscribed radius is the relevant
+one. If you want the equivalent-area version instead, it is one line —
+`equivalent_diameter` is stored on every throat. The two give substantially
+different minimum cuts, so be explicit about which you are using.
+
+**No solver nodes.** Nothing but integer pore ids appears in the node set.
+
+**Attributes are plain Python types** — `float`, `int`, and `list` — not
+numpy scalars or arrays. Loading therefore needs only `networkx`, with no
+dependence on numpy's array ABI, so these files are not tied to the numpy
+version they were written with. Wrap anything you want to compute on in
+`np.asarray()` as usual; `to_openpnm` already does.
+
+Earlier, uncorrected copies of these networks exist in the authors' working
+directories and carry none of the above guarantees. Files with
+`format_version` absent are pre-1.0 and should not be used; in particular
+their `capacity` attribute is built on the equivalent diameter and will not
+reproduce the published cuts.
 
 ## Extraction methods
 
@@ -105,6 +148,14 @@ The network files are available from the Digital Porous Media Portal:
 
 > *(add citation once published)*
 
-## License
+## Licence
 
-> *(choose a license — CC-BY-4.0 is common for data, MIT for the code)*
+Not yet chosen. Until a `LICENSE` file is added this code is under default
+copyright — publicly visible, but not licensed for reuse, modification or
+redistribution.
+
+Intended: **MIT** for the code here, **CC-BY-4.0** for the network data on
+the portal. Pending a check of the DE-SC0025400 award terms and a software
+disclosure to the UT Research Foundation, as the work was produced under a
+federal award. Once settled, add the `LICENSE` file and uncomment the
+`license:` field in `CITATION.cff`.

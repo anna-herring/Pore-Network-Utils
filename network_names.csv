@@ -11,7 +11,7 @@ Mt. Gambier Limestone,MAGNET,mt_gambier_limestone_magnet,segmented_Gambier_512_I
 Castlegate Sandstone,Diamorse,castlegate_sandstone_diamorse,segmented_castle_512_IMP_3,5.60,9.184,YES
 Castlegate Sandstone,SNOW2,castlegate_sandstone_snow2,segmented_castle_512_IMP_3_SNOW2,5.60,5.60,no
 Castlegate Sandstone,MAGNET,castlegate_sandstone_magnet,segmented_castle_512_IMP_3_MAGNET,5.60,5.60,no
-Robuglass,Diamorse,robuglass_diamorse,segmentedPenn_State_Robuglass_Vacuum_3,25.0,25.0,check
+Robuglass,Diamorse,robuglass_diamorse,segmentedPenn_State_Robuglass_Vacuum_3,25.0,25.0,no
 Bentheimer (Herring et al. 2023),Diamorse,bentheimer_herring2023_diamorse,segmentedHiRes_roi_SS_GM_AC_CACdry_ASC4sr_IC_PM_RSP0pt5_3,7.84,17.472,YES
 Bentheimer (Huang et al. 2025 minor),Diamorse,bentheimer_huang2025_minor_diamorse,segmented_HuangCore01_HiRes_roi_GM_AC_SS_MM_CAC11_ASC2_ICair_ICgrain14000_PM_ICair248_ICgrain_3,3.85,3.85,no
 Bentheimer (Huang et al. 2025 moderate),Diamorse,bentheimer_huang2025_moderate_diamorse,segmented_HuangCore02_HiRes_roi_GM_AC_SS_MM_CAC16_ICair262_ICgrain_3,3.78,5.6,YES

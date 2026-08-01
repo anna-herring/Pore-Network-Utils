@@ -1,0 +1,28 @@
+publication_name,sample,extraction,true_voxel_um,in_pores,in_throats,solver_nodes,relabelled,stored_voxel_um,rescale_factor,fields_reordered,capacity_before,capacity_after,throats_no_inscribed_d,out_pores,out_throats,v_pores,v_throats,v_version,v_coord_order,v_voxel_um,v_voxel_ok,v_nonint_nodes,v_capacity_max_relerr,mb,seconds
+silica_sphere_pack_diamorse,Silica Sphere Pack,Diamorse,17.5,673,2603,super_source;super_sink,False,17.472,1.0,4544,2531,2531,0,671,2531,671,2531,1.0,xyz,17.472,True,0,0.00e+00,1.6,0.4
+silica_sphere_pack_snow2,Silica Sphere Pack,SNOW2,17.5,1142,3595,,False,17.5,1.0,7021,3595,3595,0,1142,3595,1142,3595,1.0,xyz,17.5,True,0,0.00e+00,1.5,0.6
+silica_sphere_pack_magnet,Silica Sphere Pack,MAGNET,17.5,7933,8435,,False,17.5,1.0,8435,8435,8435,0,7933,8435,7933,8435,1.0,xyz,17.5,True,0,0.00e+00,2.8,1.0
+unconsolidated_sand_pack_diamorse,Unconsolidated Sand Pack,Diamorse,9.18,4446,18299,super_source;super_sink,False,9.184,1.0,31312,17980,17980,0,4444,17980,4444,17980,1.0,xyz,9.184,True,0,0.00e+00,11.2,2.5
+unconsolidated_sand_pack_snow2,Unconsolidated Sand Pack,SNOW2,9.18,13593,46798,,False,9.18,1.0,87577,46798,46798,0,13593,46798,13593,46798,1.0,xyz,9.18,True,0,0.00e+00,18.9,5.3
+unconsolidated_sand_pack_magnet,Unconsolidated Sand Pack,MAGNET,9.18,27861,36939,,False,9.18,1.0,36939,36939,36939,0,27861,36939,27861,36939,1.0,xyz,9.18,True,0,0.00e+00,11.6,2.7
+mt_gambier_limestone_diamorse,Mt. Gambier Limestone,Diamorse,3.02,2388,4679,super_source;super_sink,False,3.024,1.0,11690,4532,4532,0,2386,4532,2386,4532,1.0,xyz,3.024,True,0,0.00e+00,3.4,0.9
+mt_gambier_limestone_snow2,Mt. Gambier Limestone,SNOW2,3.02,6778,13447,,False,3.02,1.0,33781,13447,13447,0,6778,13447,6778,13447,1.0,xyz,3.02,True,0,0.00e+00,6.2,1.6
+mt_gambier_limestone_magnet,Mt. Gambier Limestone,MAGNET,3.02,12218,14750,,False,3.02,1.0,14750,14750,14750,0,12218,14750,12218,14750,1.0,xyz,3.02,True,0,0.00e+00,4.7,1.0
+castlegate_sandstone_diamorse,Castlegate Sandstone,Diamorse,5.6,8052,19272,super_source;super_sink,False,9.184,0.609756,42895,18745,18745,0,8050,18745,8050,18745,1.0,xyz,5.6,True,0,0.00e+00,13.2,4.3
+castlegate_sandstone_snow2,Castlegate Sandstone,SNOW2,5.6,20163,39746,,False,5.6,1.0,100235,39746,39746,0,20163,39746,20163,39746,1.0,xyz,5.6,True,0,0.00e+00,18.2,5.2
+castlegate_sandstone_magnet,Castlegate Sandstone,MAGNET,5.6,30757,42874,,False,5.6,1.0,42874,42874,42874,0,30757,42874,30757,42874,1.0,xyz,5.6,True,0,0.00e+00,13.3,3.1
+robuglass_diamorse,Robuglass,Diamorse,25.0,112098,312426,super_source;super_sink,False,25.0,1.0,646836,310548,310548,0,112096,310548,112096,310548,1.0,xyz,25.0,True,0,0.00e+00,210.2,44.5
+bentheimer_herring2023_diamorse,Bentheimer (Herring et al. 2023),Diamorse,7.84,289941,798922,,False,17.472,0.448718,1668745,798922,798922,0,289941,798922,289941,798922,1.0,xyz,7.84,True,0,0.00e+00,543.9,146.3
+bentheimer_huang2025_minor_diamorse,Bentheimer (Huang et al. 2025 minor),Diamorse,3.85,621949,1540249,super_source;super_sink,False,3.85,1.0,3402373,1536532,1536532,0,621947,1536532,621947,1536532,1.0,xyz,3.85,True,0,0.00e+00,678.3,176.4
+bentheimer_huang2025_moderate_diamorse,Bentheimer (Huang et al. 2025 moderate),Diamorse,3.78,737272,1456003,super_source;super_sink,False,5.6,0.675,3664626,1452816,1452816,0,737270,1452816,737270,1452816,1.0,xyz,3.78,True,0,0.00e+00,680.1,284.5
+bentheimer_harris2026_diamorse,Bentheimer (Harris et al. 2026),Diamorse,20.0,197664,426337,super_source;super_sink,False,20.0,1.0,1017696,424710,424710,0,197662,424710,197662,424710,1.0,xyz,20.0,True,0,0.00e+00,308.9,69.9
+clashach_sandstone_diamorse,Clashach Sandstone,Diamorse,7.0,24443,62747,super_source;super_sink,False,7.0,1.0,135374,62051,62051,0,24441,62051,24441,62051,1.0,xyz,7.0,True,0,0.00e+00,42.8,7.4
+clashach_sandstone_snow2,Clashach Sandstone,SNOW2,7.0,68980,138305,,False,7.0,1.0,345245,138305,138305,0,68980,138305,68980,138305,1.0,xyz,7.0,True,0,0.00e+00,63.3,18.2
+clashach_sandstone_magnet,Clashach Sandstone,MAGNET,7.0,116465,163323,,False,7.0,1.0,163323,163323,163323,0,116465,163323,116465,163323,1.0,xyz,7.0,True,0,0.00e+00,51.1,9.5
+indiana_limestone_diamorse,Indiana Limestone,Diamorse,4.9,215636,344252,super_source;super_sink,False,4.9,1.0,990137,343235,343235,0,215634,343235,215634,343235,1.0,xyz,4.9,True,0,0.00e+00,275.6,58.3
+edwards_brown_dolomite_diamorse,Edwards Brown Dolomite,Diamorse,5.6,995812,1562321,,False,5.6,1.0,4549757,1562321,1562321,0,995812,1562321,995812,1562321,1.0,xyz,5.6,True,0,0.00e+00,1265.1,277.1
+estaillades_spurin2020_diamorse,Estaillades (Spurin et al. 2020),Diamorse,2.75,85486,197013,super_source;super_sink,False,17.472,0.157395,451630,195178,195178,0,85484,195178,85484,195178,1.0,xyz,2.75,True,0,0.00e+00,138.8,35.6
+estaillades_spurin2020_snow2,Estaillades (Spurin et al. 2020),SNOW2,2.75,263636,618072,,False,2.75,1.0,1408980,618072,618072,0,263636,618072,263636,618072,1.0,xyz,2.75,True,0,0.00e+00,275.8,86.5
+estaillades_spurin2020_magnet,Estaillades (Spurin et al. 2020),MAGNET,2.75,675971,932369,,False,2.75,1.0,932369,932369,932369,0,675971,932369,675971,932369,1.0,xyz,2.75,True,0,0.00e+00,295.3,61.1
+estaillades_menke2022_diamorse,Estaillades (Menke et al. 2022),Diamorse,3.9676,170287,276571,super_source;super_sink,False,3.9676,1.0,786780,275925,275925,0,170285,275925,170285,275925,1.0,xyz,3.9676,True,0,0.00e+00,135.8,29.8
+leopard_sandstone_diamorse,Leopard Sandstone,Diamorse,3.47529,78358,119917,super_source;super_sink,False,3.4753,1.0,353638,118570,118570,0,78356,118570,78356,118570,1.0,xyz,3.4753,True,0,0.00e+00,59.2,12.5

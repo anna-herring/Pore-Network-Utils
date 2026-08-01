@@ -1,0 +1,28 @@
+file_name,sample_name,extraction,type,source,image_porosity,voxel_size_um,voxel_size_in_pickle_um,rescale_needed,identifier_source_image
+silica_sphere_pack_diamorse.pickle,Silica Sphere Pack,Diamorse,Sphere pack (silica glass),Anthropogenic,0.379,17.5,17.5,no,TODO
+silica_sphere_pack_snow2.pickle,Silica Sphere Pack,SNOW2,Sphere pack (silica glass),Anthropogenic,0.379,17.5,17.5,no,TODO
+silica_sphere_pack_magnet.pickle,Silica Sphere Pack,MAGNET,Sphere pack (silica glass),Anthropogenic,0.379,17.5,17.5,no,TODO
+unconsolidated_sand_pack_diamorse.pickle,Unconsolidated Sand Pack,Diamorse,Unconsolidated sand pack,Natural grains; anthropogenic packing,0.363,9.18,5.6,YES,TODO
+unconsolidated_sand_pack_snow2.pickle,Unconsolidated Sand Pack,SNOW2,Unconsolidated sand pack,Natural grains; anthropogenic packing,0.363,9.18,9.18,no,TODO
+unconsolidated_sand_pack_magnet.pickle,Unconsolidated Sand Pack,MAGNET,Unconsolidated sand pack,Natural grains; anthropogenic packing,0.363,9.18,9.18,no,TODO
+mt_gambier_limestone_diamorse.pickle,Mt. Gambier Limestone,Diamorse,Limestone (carbonate),Natural,0.436,3.02,3.02,no,TODO
+mt_gambier_limestone_snow2.pickle,Mt. Gambier Limestone,SNOW2,Limestone (carbonate),Natural,0.436,3.02,3.02,no,TODO
+mt_gambier_limestone_magnet.pickle,Mt. Gambier Limestone,MAGNET,Limestone (carbonate),Natural,0.436,3.02,3.02,no,TODO
+castlegate_sandstone_diamorse.pickle,Castlegate Sandstone,Diamorse,Sandstone (clastic),Natural,0.206,5.60,9.184,YES,TODO
+castlegate_sandstone_snow2.pickle,Castlegate Sandstone,SNOW2,Sandstone (clastic),Natural,0.206,5.60,5.60,no,TODO
+castlegate_sandstone_magnet.pickle,Castlegate Sandstone,MAGNET,Sandstone (clastic),Natural,0.206,5.60,5.60,no,TODO
+robuglass_diamorse.pickle,Robuglass,Diamorse,Sintered glass (synthetic),Anthropogenic,0.241,25.0,UNRESOLVED,CHECK BEFORE UPLOAD,TODO
+bentheimer_herring2023_diamorse.pickle,Bentheimer (Herring et al. 2023),Diamorse,Sandstone (clastic),Natural,0.201,7.84,17.472,YES,TODO
+bentheimer_huang2025_minor_diamorse.pickle,Bentheimer (Huang et al. 2025 minor),Diamorse,Sandstone (clastic),Natural,0.210,3.85,3.85,no,TODO
+bentheimer_huang2025_moderate_diamorse.pickle,Bentheimer (Huang et al. 2025 moderate),Diamorse,Sandstone (clastic),Natural,0.196,3.78,5.6,YES,TODO
+bentheimer_harris2026_diamorse.pickle,Bentheimer (Harris et al. 2026),Diamorse,Sandstone (clastic),Natural,0.189,20.0,20.0,no,TODO
+clashach_sandstone_diamorse.pickle,Clashach Sandstone,Diamorse,Sandstone (clastic),Natural,0.224,7.0,7.0,no,TODO
+clashach_sandstone_snow2.pickle,Clashach Sandstone,SNOW2,Sandstone (clastic),Natural,0.224,7.0,7.0,no,TODO
+clashach_sandstone_magnet.pickle,Clashach Sandstone,MAGNET,Sandstone (clastic),Natural,0.224,7.0,7.0,no,TODO
+leopard_sandstone_diamorse.pickle,Leopard Sandstone,Diamorse,Sandstone (clastic),Natural,0.159,3.47529,3.47529,no,TODO
+indiana_limestone_diamorse.pickle,Indiana Limestone,Diamorse,Limestone (carbonate),Natural,0.095,4.9,4.9,no,TODO
+edwards_brown_dolomite_diamorse.pickle,Edwards Brown Dolomite,Diamorse,Dolomite (carbonate),Natural,0.223,5.6,5.6,no,TODO
+estaillades_spurin2020_diamorse.pickle,Estaillades (Spurin et al. 2020),Diamorse,Limestone (carbonate),Natural,0.169,2.75,17.472,YES,TODO
+estaillades_spurin2020_snow2.pickle,Estaillades (Spurin et al. 2020),SNOW2,Limestone (carbonate),Natural,0.169,2.75,2.75,no,TODO
+estaillades_spurin2020_magnet.pickle,Estaillades (Spurin et al. 2020),MAGNET,Limestone (carbonate),Natural,0.169,2.75,2.75,no,TODO
+estaillades_menke2022_diamorse.pickle,Estaillades (Menke et al. 2022),Diamorse,Limestone (carbonate),Natural,0.099,3.9676,3.9676,no,TODO

@@ -16,33 +16,51 @@ Or from the command line::
     python network_to_openpnm.py clashach_sandstone_diamorse.pickle \
         --voxel-um 7.0 --save-vtk
 
-FOUR CONVENTIONS YOU MUST KNOW
-------------------------------
+CONVENTIONS
+-----------
+Published files carry ``G.graph["format_version"] = "1.0"``. In those files
+every correction below has already been applied, so you can simply load and
+use them -- ``load_graph`` and ``to_openpnm`` detect the stamp and become
+no-ops. The list matters only if you are handling a pre-1.0 file.
+
+    G.graph == {
+        "format_version": "1.0",
+        "coord_order": "xyz",
+        "units": "SI (metres)",
+        "voxel_size_um": <true voxel size, already applied>,
+        "capacity_definition": "(inscribed_diameter/2)**4, m^4",
+        "sample_name": ..., "extraction": ...,
+    }
+
 1. UNITS ARE METRES. Every length/area/volume attribute is SI, not voxels
    and not microns. Multiply by 1e6 for microns.
 
-2. COORDINATE ORDER DIFFERS BETWEEN ATTRIBUTES. Node ``coords`` is
-   ``(x, y, z)``. Node ``global_peak``/``geometric_centroid``/``local_peak``
-   and edge ``global_peak`` are ``(z, y, x)`` -- the porespy/region
-   convention. ``to_openpnm`` leaves ``coords`` alone and reverses the
-   ``(z,y,x)`` fields so everything ends up ``(x, y, z)``. Pass
-   ``reorder=False`` to keep them as stored.
+2. COORDINATE ORDER. In 1.0 files EVERY vector attribute is ``(x, y, z)``.
+   In pre-1.0 files node ``coords`` was ``(x, y, z)`` but
+   ``global_peak``/``geometric_centroid``/``local_peak`` were ``(z, y, x)``
+   (the porespy region convention); ``to_openpnm`` reverses those. It keys
+   off ``coord_order``, so passing a 1.0 file through does NOT double-flip.
 
-3. SOME NETWORKS WERE EXTRACTED WITH THE WRONG VOXEL SIZE. The extraction
-   recorded a placeholder voxel size, so absolute lengths in those files are
-   off by a constant factor. ``network_names.csv`` lists which ones
-   (``rescale_needed = YES``) together with the correct voxel size. Pass the
-   correct ``voxel_size_um`` and ``load_graph`` rescales for you: lengths
-   scale by f, areas by f^2, volumes by f^3, and the OpenPNM
-   ``*_size_factors`` (which have units of length) by f. Dimensionless
-   quantities and per-pore counts are untouched. Without this correction the
-   TOPOLOGY is still right but absolute permeability/capillary pressures
-   will be wrong.
+3. VOXEL SIZE. Some extractions recorded a placeholder voxel size, leaving
+   absolute lengths off by a constant factor -- topology right, permeability
+   and capillary pressures wrong. 1.0 files are already corrected to the
+   true voxel size recorded in the stamp. For a pre-1.0 file, pass the
+   correct ``voxel_size_um`` (see ``network_names.csv``) and ``load_graph``
+   rescales: lengths by f, areas by f^2, volumes by f^3, and the OpenPNM
+   ``*_size_factors`` (units of length) by f. It is safe to pass every time
+   -- a no-op when the stored size is already right.
 
-4. A FEW FILES CARRY LEFTOVER SOLVER NODES. Some networks were saved after
-   a max-flow run and still contain ``super_source``/``super_sink`` nodes
-   with no geometry. ``load_graph`` drops any node that is not an integer
-   pore id and reindexes the rest contiguously.
+4. SOLVER NODES. Some pre-1.0 files were saved after a max-flow run and
+   still contain ``super_source``/``super_sink`` nodes with no geometry.
+   ``load_graph`` drops any non-integer node and reindexes contiguously.
+   1.0 files contain none.
+
+5. THROAT ``capacity``. In 1.0 files this is ``(inscribed_diameter/2)**4``
+   in m^4 on every throat -- the definition behind the published minimum
+   cuts. PRE-1.0 FILES CARRY A DIFFERENT QUANTITY: an inherited
+   ``(equivalent_diameter/2)**4``, which yields a different min cut. If you
+   are working from a pre-1.0 file, recompute it from
+   ``inscribed_diameter`` rather than trusting the stored value.
 
 Requires: networkx, numpy, openpnm >= 3.0 (only for ``to_openpnm``).
 """
@@ -132,11 +150,19 @@ def _rescale(attrs, f):
             attrs[k] = np.asarray(attrs[k], dtype=float) * (f ** n)
 
 
-def to_openpnm(G, reorder=True):
+def to_openpnm(G, reorder=None):
     """Rebuild an ``openpnm.network.Network`` from the graph. Node
     attributes become ``pore.*`` and edge attributes ``throat.*``.
-    ``reorder`` converts the (z,y,x) fields to (x,y,z)."""
+
+    ``reorder`` converts the (z,y,x) fields to (x,y,z). Leave it as ``None``
+    (the default) and the right thing happens: files stamped
+    ``coord_order = "xyz"`` are already normalised and are left alone, older
+    files are reordered. Only pass True/False to override that.
+    """
     import openpnm as op
+
+    if reorder is None:
+        reorder = G.graph.get("coord_order", "mixed") != "xyz"
 
     nodes = sorted(G.nodes())
     index = {n: i for i, n in enumerate(nodes)}
